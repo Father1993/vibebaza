@@ -7,7 +7,7 @@ tags:
   - Humor
   - Product
   - DevRel
-author: VibeBaza
+author: @iceageice
 featured: false
 ---
 
