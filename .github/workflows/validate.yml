@@ -70,6 +70,13 @@ jobs:
               continue
             fi
 
+            # Check author field for unquoted @ symbol
+            if echo "$YAML" | grep -q '^author: @'; then
+              echo "::error file=$file::Author field starting with @ must be quoted. Use: author: \"@nickname\""
+              ERRORS=$((ERRORS + 1))
+              continue
+            fi
+
             # Check file is in valid directory
             DIR=$(dirname "$file")
             if [[ ! "$DIR" =~ ^(skills|agents|prompts|mcps|bundles)$ ]]; then
